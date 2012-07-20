@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wanmei.domain">
+	<class name="com.wanmei.domain.Project" table="project">
+		<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+		<property name="name" type="string" column="name" length="20" not-null="true" />
+		<property name="label" type="string" column="label" length="20" not-null="true" />
+		<property name="org" type="string" column="org" length="20" not-null="true" />
+		<property name="tablePre" type="string" column="table_pre" length="20"  />
+		<property name="output" type="string" column="output" length="250"  />
+		<property name="version" type="string" column="version" length="250"  />
+		<property name="jdkVersion" type="string" column="jdk_version" length="250"  />
+		<property name="needTomcatPlug" type="java.lang.Boolean" column="need_tomcat_plug"  />
+		<property name="proType" type="java.lang.Byte" column="pro_type"  />
+		<property name="codeType" type="java.lang.Byte" column="code_type"  />
+		<many-to-one name="db" class="com.wanmei.domain.Db" fetch="select" lazy="false" column="db" />
+		<many-to-one name="action" class="com.wanmei.domain.Action" fetch="select" lazy="false" column="action" />
+		<many-to-one name="dao" class="com.wanmei.domain.Dao" fetch="select" lazy="false" column="dao" />
+		<many-to-one name="security" class="com.wanmei.domain.Security" fetch="select" lazy="false" column="security" />
+    </class>
+</hibernate-mapping>

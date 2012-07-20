@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xmlns:aop="http://www.springframework.org/schema/aop"
+             xsi:schemaLocation="
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd 
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <beans:bean id="loggerListener" class="org.springframework.security.access.event.LoggerListener"/>
+
+   	<http pattern="/static/**" security='none'/>
+   	<http pattern="/common/**" security='none'/>
+    <http pattern="/js/**" security='none'/>
+    <http pattern="/images/**" security='none'/>
+    <http pattern="/style/**" security='none'/>
+    <http pattern="/login.jsp" security='none'/>
+    <http pattern="/accessDenied.jsp" security='none'/>
+    <http pattern="/favicon.ico" security='none'/>
+    <http access-denied-page="/common/accessDenied.jsp" entry-point-ref="myAuthenticationProcessingFilterEntryPoint">
+<!--     	<intercept-url pattern="/**" access="ROLE_ADMIN" requires-channel="https"/>-->
+     	     	<intercept-url pattern="/**" access="ROLE_ADMIN,ROLE_USER" />
+        <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?login_error=true" default-target-url="/index.jsp" always-use-default-target="true" />
+       	<logout invalidate-session="true" logout-success-url="/login.jsp" logout-url="/logout"/>
+<!--        <x509 subject-principal-regex="CN=([^,]*)" />-->
+    </http>
+    
+    <authentication-manager alias="authenticationManager">
+	    <authentication-provider user-service-ref="securityUserService">
+			<password-encoder hash="plaintext"/>
+	    </authentication-provider>
+    </authentication-manager>
+    <!-- 未登录的切入点 -->
+	<beans:bean id="myAuthenticationProcessingFilterEntryPoint"
+		class="com.wanmei.common.security.MyAuthenticationProcessingFilterEntryPoint">
+		<beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
+	</beans:bean>
+    
+</beans:beans>

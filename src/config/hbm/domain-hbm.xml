@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wanmei.domain">
+	<class name="com.wanmei.domain.Domain" table="domain">
+		<cache usage="read-write"/>
+        <id name="idkey" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+		<property name="name" type="string" column="name" length="20" not-null="true" />
+		<property name="label" type="string" column="label" length="20" not-null="true" />
+		<property name="table" type="string" column="db_table" length="20"  />
+		<property name="description" type="string" column="description" length="250"  />
+		<property name="packageName" type="string" column="package_name" length="20" not-null="true" />
+		<property name="disabledControllers" type="string" column="disabled_controllers" length="250"  />
+		<property name="isUser" type="java.lang.Boolean" column="is_user"  />
+		<property name="isComposeId" type="java.lang.Boolean" column="is_compose_id"  />
+		<property name="checkType" type="java.lang.Byte" column="check_type"  />
+    </class>
+</hibernate-mapping>

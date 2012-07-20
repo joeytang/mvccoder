@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wanmei.domain">
+	<class name="com.wanmei.domain.DomainController" table="domain_controller">
+		<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+		<many-to-one name="domain" class="com.wanmei.domain.Domain" fetch="select" lazy="false" column="domain_id" />
+		<many-to-one name="controller" class="com.wanmei.domain.Controller" fetch="select" lazy="false" column="controller_id" />
+		<property name="createTime" type="timestamp" column="create_time"  />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wanmei.domain">
+	<class name="com.wanmei.domain.User" table="user">
+		<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+		<property name="username" type="string" column="username" length="50"  />
+		<property name="password" type="string" column="password" length="50"  />
+		<property name="nickname" type="string" column="nickname" length="50"  />
+		<property name="role" type="string" column="role" length="50"  />
+		<property name="status" type="java.lang.Byte" column="status"  />
+    </class>
+</hibernate-mapping>

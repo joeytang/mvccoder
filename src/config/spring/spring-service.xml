@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="userContext" class="com.wanmei.support.UserContext" scope="session"/>
+    
+	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> 
+		<property name="templateLoaderPath" value="/templates/" /> 
+		<property name="freemarkerSettings"> 
+			<props> 
+				<prop key="template_update_delay">0</prop> 
+				<prop key="default_encoding">UTF-8</prop> 
+				<prop key="locale">zh_CN</prop> 
+			</props> 
+		</property> 
+	</bean>
+
+</beans>

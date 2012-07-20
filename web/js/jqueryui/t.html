@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <link href="development-bundle/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
+  <link href="js/easyui/easyui.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+  <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" >
+   $(document).ready(function() {
+	   $("#accordion").accordion({ header: "h3" });
+	   $("#dialog").dialog();
+	   $("#resizable").resizable();
+
+  });
+
+  </script>
+ </HEAD>
+
+ <BODY>
+ 
+<div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+  <div>
+	<h3  class="ui-accordion-header ui-helper-reset ui-state-active ui-corner-top"><a href="#">First</a></h3>
+	<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+ </div>
+	<div >
+		<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all"><a href="#">Second</a></h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">Phasellus mattis tincidunt nibh.</div>
+	</div>
+	<div >
+		<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all"><a href="#">Third</a></h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">Nam dui erat, auctor a, dignissim quis.</div>
+	</div>
+</div>
+
+<div id="dialog" title="Dialog Title">I'm in a dialog</div>
+
+<div id="resizable">aaaaaaaaaaaaaaaaaaaaaaaa</div>
+
+ </BODY>
+</HTML>

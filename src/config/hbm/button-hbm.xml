@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wanmei.domain">
+	<class name="com.wanmei.domain.Button" table="button">
+		<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+		<property name="type" type="java.lang.Byte" column="type" not-null="true" />
+		<property name="label" type="string" column="label" length="20" not-null="true" />
+		<property name="function" type="string" column="function" length="20" not-null="true" />
+    </class>
+</hibernate-mapping>

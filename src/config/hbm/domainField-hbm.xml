@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wanmei.domain">
+	<class name="com.wanmei.domain.DomainField" table="domain_field">
+		<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+		<many-to-one name="domain" class="com.wanmei.domain.Domain" fetch="select" lazy="false" column="domain_id" />
+		<many-to-one name="field" class="com.wanmei.domain.Field" fetch="select" lazy="false" column="field_id" />
+		<property name="nullable" type="java.lang.Boolean" column="nullable"  />
+		<property name="listable" type="java.lang.Boolean" column="listable"  />
+		<property name="editable" type="java.lang.Boolean" column="editable"  />
+		<property name="hbmable" type="java.lang.Boolean" column="hbmable"  />
+		<property name="viewable" type="java.lang.Boolean" column="viewable"  />
+		<property name="searchable" type="java.lang.Boolean" column="searchable"  />
+		<property name="sortable" type="java.lang.Boolean" column="sortable"  />
+		<property name="listOrder" type="java.lang.Integer" column="list_order"  />
+		<property name="editOrder" type="java.lang.Integer" column="edit_order"  />
+		<property name="viewOrder" type="java.lang.Integer" column="view_order"  />
+		<property name="searchOrder" type="java.lang.Integer" column="search_order"  />
+		<property name="createTime" type="timestamp" column="create_time"  />
+		<property name="relationType" type="java.lang.Byte" column="relation_type"  />
+		<property name="many2OneType" type="java.lang.Byte" column="many_2_one_type"  />
+		<property name="many2OneOrder" type="java.lang.Integer" column="many_2_one_order"  />
+		<property name="many2OneName" type="string" column="many_2_one_name" length="100" />
+    </class>
+</hibernate-mapping>
